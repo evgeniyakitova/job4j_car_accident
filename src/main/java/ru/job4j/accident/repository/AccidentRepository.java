@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
-public class AccidentMem {
+public class AccidentRepository {
 
     private final HashMap<Integer, Accident> accidents = new HashMap<>();
     private final AtomicInteger accidentId = new AtomicInteger(0);
