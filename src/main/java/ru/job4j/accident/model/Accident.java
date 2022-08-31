@@ -1,13 +1,13 @@
 package ru.job4j.accident.model;
 
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Objects;
-
 @Getter
 @Setter
+@EqualsAndHashCode(of = "id")
 public class Accident {
     private int id;
     private String name;
@@ -18,22 +18,5 @@ public class Accident {
         this.name = name;
         this.text = text;
         this.address = address;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Accident accident = (Accident) o;
-        return id == accident.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }
