@@ -38,6 +38,13 @@
                     </select>
                 </label>
             </div>
+            <div class="form-group">
+                <label>Статьи:
+                    <select name="rules" class="form-control" multiple>
+                        <option th:each="rule : ${rules}" th:value="${rule.id}" th:text="${rule.name}"></option>
+                    </select>
+                </label>
+            </div>
             <button type="submit" class="btn btn-primary">Сохранить</button>
         </form>
     </div>

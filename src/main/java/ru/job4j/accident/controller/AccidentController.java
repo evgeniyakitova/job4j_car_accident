@@ -2,12 +2,12 @@ package ru.job4j.accident.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
+import ru.job4j.accident.editors.RulePropertyEditor;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
+import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.service.AccidentService;
 
 import java.util.List;
@@ -22,9 +22,19 @@ public class AccidentController {
         this.accidentService = accidentService;
     }
 
+    @InitBinder("accident")
+    public void initBinder(WebDataBinder binder) {
+        binder.registerCustomEditor(Rule.class, new RulePropertyEditor());
+    }
+
     @ModelAttribute("types")
     public List<AccidentType> getTypes() {
         return accidentService.findAllAccidentTypes();
+    }
+
+    @ModelAttribute("rules")
+    public List<Rule> getRules() {
+        return accidentService.findAllRules();
     }
 
     @GetMapping("/create")
