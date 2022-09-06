@@ -11,7 +11,6 @@ import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.service.AccidentService;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class AccidentController {
@@ -50,11 +49,7 @@ public class AccidentController {
 
     @GetMapping("/update/{id}")
     public String getUpdateForm(@PathVariable int id, Model model) {
-        Optional<Accident> accidentFromDB = accidentService.findById(id);
-        if (accidentFromDB.isEmpty()) {
-            return "redirect:/";
-        }
-        model.addAttribute("accident", accidentFromDB.get());
+        model.addAttribute("accident", accidentService.findById(id));
         return "accident/update";
     }
 

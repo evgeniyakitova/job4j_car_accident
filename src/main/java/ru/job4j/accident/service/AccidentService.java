@@ -9,7 +9,6 @@ import ru.job4j.accident.repository.AccidentTypeRepository;
 import ru.job4j.accident.repository.RuleRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AccidentService {
@@ -35,8 +34,10 @@ public class AccidentService {
         accidentRepository.save(accident);
     }
 
-    public Optional<Accident> findById(int id) {
-        return accidentRepository.findById(id);
+    public Accident findById(int id) {
+        return accidentRepository
+                .findById(id)
+                .orElseThrow();
     }
 
     public void update(Accident accident) {
