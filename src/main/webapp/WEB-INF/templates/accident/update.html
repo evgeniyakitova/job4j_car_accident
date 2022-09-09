@@ -15,7 +15,7 @@
         <h1>Редактировать инцидент</h1>
     </div>
     <div class="row pt-3">
-        <form th:action="@{/update}" method="POST" th:object="${accident}">
+        <form th:action="@{/save}" method="POST" th:object="${accident}">
             <input type="hidden" th:field="*{id}"/>
             <div class="form-group">
                 <label>Название:
@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label>Описание:
-                    <input type="text" class="form-control" th:field="*{text}">
+                    <input type="text" class="form-control" th:field="*{description}">
                 </label>
             </div>
             <div class="form-group">

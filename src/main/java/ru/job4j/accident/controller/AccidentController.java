@@ -41,7 +41,7 @@ public class AccidentController {
         return "accident/create";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/save")
     public String createAccident(Accident accident) {
         accidentService.save(accident);
         return "redirect:/";
@@ -51,11 +51,5 @@ public class AccidentController {
     public String getUpdateForm(@PathVariable int id, Model model) {
         model.addAttribute("accident", accidentService.findById(id));
         return "accident/update";
-    }
-
-    @PostMapping("/update")
-    public String updateAccident(Accident accident) {
-        accidentService.update(accident);
-        return "redirect:/";
     }
 }
