@@ -13,6 +13,9 @@
 <div class="container">
     <div class="row pt-3">
         <h1>Добавить инцидент</h1>
+        <a class="nav-link p-2 ml-auto" th:href="@{/logout}">
+            <span>Выйти</span>
+        </a>
     </div>
     <div class="row pt-3">
         <form th:action="@{/save}" method='POST'>
