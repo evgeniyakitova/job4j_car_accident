@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
 
@@ -14,7 +15,8 @@
     <div class="row pt-3">
         <h1>Редактировать инцидент</h1>
         <a class="nav-link p-2 ml-auto" th:href="@{/logout}">
-            <span>Выйти</span>
+            <span sec:authentication="name"></span>
+            <span> | Выйти</span>
         </a>
     </div>
     <div class="row pt-3">
